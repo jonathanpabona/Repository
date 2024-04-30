@@ -1,0 +1,19 @@
+{% extends 'car_app/index.html' %}
+{% load static %}
+{% block content %}
+    <h1>Car List</h1>
+    <button>
+        <a href="{% url 'car_list' %}">Show all cars </a>
+    </button>
+    <br><br><br>
+<!--    <form action="{% url 'swap_car' %}" method="post">-->
+         {% csrf_token %}
+<!--        <button type="submit">Go</button>-->
+        <ul id="sortable">
+                {% for car in cars %}
+                        <li data-car-id="{{car.id}}" data-car-order="{{car.position}}"  class="sort_data"><img src="{% static 'images/' %}{{ car.color }}.png" alt="{{ car.name }} Image" width="200">{{car.name}}</li>
+                {% endfor %}
+
+        </ul>
+<!--    </form>-->
+{% endblock %}

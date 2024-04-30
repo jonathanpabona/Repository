@@ -1,0 +1,28 @@
+{% extends 'car_app/index.html' %}
+{% load static %}
+{% block content %}
+    <h1>Car List</h1>
+        {% for car in cars %}
+            <button>
+                <a href="{% url 'show_car' car.color %}">Show {{ car.color }} cars </a>
+             </button>
+        {% endfor %}
+            <br><br><br>
+<!--    <form action="{% url 'swap_car' %}" method="post">-->
+<!--         {% csrf_token %}-->
+<!--            <button type="submit">Change</button>-->
+<!--            <select name="type" class="type">-->
+<!--                <option value="">-Select-</option>-->
+<!--                <option value="1">-1-</option>-->
+<!--                <option value="2">-2-</option>-->
+<!--            </select>-->
+<!--            <input type="hidden" name="selected_cars" value="all">-->
+<!--        <ul id="sortable">-->
+<!--                {% for car in cars %}-->
+<!--                        <input type="checkbox" class="selected_cars" name="selected_cars" value="{{ car.id }}">{{car.name}}-->
+<!--                        <li data-car-id="{{car.id}}" data-car-order="{{car.position}}"  class="sort_data"><img src="{% static 'images/' %}{{ car.color }}.png" alt="{{ car.name }} Image" width="200"></li>-->
+<!--                {% endfor %}-->
+
+<!--        </ul>-->
+<!--    </form>-->
+{% endblock %}

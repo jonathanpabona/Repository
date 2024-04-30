@@ -1,0 +1,11 @@
+{% extends 'car_app/index.html' %}
+{% load static %}
+{% block content %}
+    <h1>{% if form.instance.pk %}Edit Car{% else %}Add Car{% endif %}</h1>
+    <button><a class="text-center" href="{% url 'car_list' %}">Back</a></button>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}
